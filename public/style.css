@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Prompt', sans-serif;
+
+}
+
+.Navegacion_General{
+    background: #112e40;
+}
+.Navegacion_General a{
+    position: relative;
+    display: inline-block;
+    color: #C8D3D7;
+    text-decoration: none;
+    padding: 1px;
+    margin-bottom: 5px;
+    width: 150px;
+    justify-content: space-between;
+
+}
+
+.Navegacion_General a:hover{
+    background-color: #c8d4d7;
+    border-top: 1px solid #c8d4d7;
+}
+
+.Galeria_Ind{
+    display: flex;
+    width: 600px;
+    height: 100%;
+}
+
+.Galeria_Ind img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+.Galeria_Ind img:hover{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
+
+section{
+    background: #025949;
+}
+
