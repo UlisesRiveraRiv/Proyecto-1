@@ -1,9 +1,15 @@
-const express = require('express');
-const router = express.Router();
+const express = require("express");
+const routes = express.Router();
 
-    //routes
-    router.get('/',(req, res) => {
-        res.render('index.html', {title: 'Back to Travel'});
-    });
+const imagesController = require('./imagenes.controller');
 
-    module.exports = router;
+routes.post(
+    "/imagenes/:tabla",
+    imagesController.upload,
+    imagesController.uploadFile
+  );
+  
+  module.exports = routes;
+
+
+

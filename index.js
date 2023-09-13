@@ -1,24 +1,24 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-var bodyParse = require('body-parser')
-
-//settings
-app.set('port', 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
-//urlcoded
-app.use(bodyParse.urlencoded({extended:false}));
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+const conn =require('express-myconnection')
+const routes = require('./rutas/rutas.js');
 //MySQL
+const mysql = require('mysql2');
+//settings
+app.set('port', process.env. PORT || 3000);
+const dbConfig = {
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: 'FGr5521201#%.',
+    database: 'imagenes'
+}
+app.use(conn(mysql, dbConfig, "single"));
+
 
 //routes
-app.use(require('./vistas/index.html'));
-
+app.use("/", routes);
 //archivos estaticos
-app.use(express.static(path.join(__dirname, 'public')));
 
 //Servidor escuchando
 app.listen(app.get('port'), () =>{
